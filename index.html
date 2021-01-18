@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+    <button>button</button>
+    <button>button</button>
+    <a href="#">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        button
+    </a>
+    <a href="#" class="reflection">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        button
+    </a>
+    <script type = 'text/javascript'>
+        let buttonList = document.querySelectorAll('button');
+        console.log(buttonList)
+        buttonList.forEach(function(btn){
+            btn.addEventListener('click',function(e){
+                let x = e.clientX - e.target.offsetLeft;
+                let y = e.clientY - e.target.offsetTop;
+                let effectButton = document.createElement('span');
+                effectButton.style.top = `${y}px`;
+                effectButton.style.left = `${x}px`;
+                this.appendChild(effectButton);
+                setTimeout(function(){
+                    effectButton.remove();
+                },1000)
+            })
+        })  
+    </script>
+</body>
+</html>
